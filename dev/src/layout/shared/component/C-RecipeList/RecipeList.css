@@ -1,0 +1,95 @@
+
+.recipe-list{
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* display: flex;
+    flex-wrap: wrap; */
+    gap: 25px;
+    height: 750px;
+    overflow: auto;
+    padding: 10px;
+}
+
+.recipe-block{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    height: 365px;
+    width: 280px;
+    background-color: #FFF7EC;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+.recipe-block:hover{
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.image-block{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img{
+    object-fit: fill;
+    border-radius: 10px;
+}
+
+.information-block{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.recipe-title{
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.recipe-title:hover{
+    text-decoration: underline;
+}
+
+
+.recipe-description{
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Số dòng tối đa trước khi cắt */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 57px;
+}
+
+.recipe-author{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.save-block{
+    display: flex;
+    justify-content: space-between;
+}
+
+.num-of-saved{
+    font-style: italic;
+}
+
+.save-icon{
+    color: #33363F;
+    cursor: pointer;
+}
+
+.save-icon.isSaved{
+    color: #F67831;
+}
