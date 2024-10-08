@@ -50,20 +50,53 @@
 .body{
     margin-top: 20px;
     display: block;
+    
 }
 
 .item-module{
-    height: 40px;
+    height: 50px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: white;
-    font-weight: bold;
+    color: white !important;
+    font-weight: 500;
+}
+
+.item-module-active{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #F67831;
+    font-weight: 500;
+    background-color: rgb(255, 255, 255);
 }
 
 .item-module:hover{
     background-color: #ffffff;
-    color: #F67831;
+    color: #F67831 !important;
 }
+
+.btn-module{
+    display: flex;
+    width: 200px;
+    gap: 20px;
+}
+
+.footer{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 240px;
+    bottom: 0;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
