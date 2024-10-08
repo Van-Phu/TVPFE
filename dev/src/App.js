@@ -6,15 +6,22 @@ import './App.css'
 
 function App() {
   return (
-    <div className='container'>
+    <div className='container-app'>
       <Router>
-        <div >
+        <div className='layout-app'>
           <div className='navbar-area'>
             <Navbar />
           </div>
-          <div className='route-area'>
-            <AppRoutes />
+
+          <div className='rightContent'>
+            <div className='titleApp'>
+                Hello world
+            </div>
+            <div className='route-area'>
+              <AppRoutes />
+            </div>
           </div>
+          
         </div>
       </Router>
     </div>

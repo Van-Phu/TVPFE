@@ -1,15 +1,25 @@
 import './navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHouse, faBook, faBox, faAddressBook } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+
 
 export function Navbar() {
     const listModule = [
-        { id: 0, text: 'Module 1', icon: 'fa-house' },
-        { id: 0, text: 'Module 1', icon: 'fa-house' },
-        { id: 0, text: 'Module 1', icon: 'fa-house' },
-        { id: 0, text: 'Module 1', icon: 'fa-house' },
-        { id: 0, text: 'Module 1', icon: 'fa-house' },
+        { id: 0, text: 'CÔNG THỨC', icon: faBook, routeLink: '/recipe' },
+        { id: 1, text: 'ĐÃ LƯU', icon: faBox, routeLink: '/comunicate'  },
+        { id: 2, text: 'CỘNG ĐỒNG', icon: faAddressBook, routeLink: '/stogare'  },
+        { id: 3, text: 'Module 1', icon: faAddressBook },
+        { id: 4, text: 'Module 1', icon: faAddressBook },
     ]
+    const [moduleActive, setModuleActive] = useState()
+    const navigate = useNavigate()
 
+    const handleModuleClick = (module) => {
+        setModuleActive(module)
+        navigate(module.routeLink)
+    }
 
     return (
         <div className='container'>
@@ -26,18 +36,16 @@ export function Navbar() {
             </div>
             <div className="body">
                 {listModule.map((item) => (
-                    <div className='item-module' key={item.id}>
-                        <FontAwesomeIcon icon="fa-solid fa-house" />
-                        <li>
-                            {item.text}
-                        </li>
-                        
+                    <div onClick={() => handleModuleClick(item)} className={moduleActive?.id == item?.id ? 'item-module-active' : 'item-module'} key={item.id}>
+                        <div className='btn-module'>
+                            <FontAwesomeIcon icon={item.icon} />
+                            <li>{item.text}</li>
+                        </div>
                     </div>
                 ))}
             </div>
-
             <div className="footer">
-
+                <div className='btn-logout'>Đăng xuất</div>
             </div>
         </div>
     )
