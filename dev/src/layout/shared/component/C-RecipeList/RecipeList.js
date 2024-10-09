@@ -3,23 +3,12 @@ import { DTORecipeMaster } from "../../dto/DTORecipe"
 import { faBookmark as solidBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as regularBookmark } from '@fortawesome/free-regular-svg-icons';
 import './RecipeList.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function RecipeList({data}) {
-    
-    const test = new DTORecipeMaster()
-    const listTest = [
-        { Code: 1, RecipeName: "Bún Real", RecipeDescription: "Món ăn đơn giản các bạn nên giản các bạn nên giản các bạn nên nấu để ăn vào ngày mưa Món ăn đơn giản các bạn nên nấu để ăn vào ngày mưa", Category: ["monnuoc"], IsSaved: true, NumOfSaved: 50, Author: "Heo con nấu ăn" },
-        { Code: 2, RecipeName: "Bún Real", RecipeDescription: "Test for test for test for", Category: ["monnuoc"], IsSaved: false, NumOfSaved: 10, Author: "Heo con nấu ăn" },
-        { Code: 3, RecipeName: "Bún Real", RecipeDescription: "Test for test for test for", Category: ["monnuoc"], IsSaved: false, NumOfSaved: 20, Author: "Heo con nấu ăn" },
-        { Code: 4, RecipeName: "Bún Real", RecipeDescription: "Test for test for test for", Category: ["monnuoc"], IsSaved: true, NumOfSaved: 80, Author: "Heo con nấu ăn" },
-        { Code: 5, RecipeName: "Bún Real", RecipeDescription: "Test for test for test for", Category: ["monnuoc"], IsSaved: true, NumOfSaved: 80, Author: "Heo con nấu ăn" },
-        { Code: 6, RecipeName: "Bún Real", RecipeDescription: "Test for test for test for", Category: ["monnuoc"], IsSaved: true, NumOfSaved: 80, Author: "Heo con nấu ăn" }
-
-
-    ]
-    const [recipes, setRecipes] = useState(listTest);
+    const [recipes, setRecipes] = useState(data || []);
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleSaveClick = (recipe) =>{
@@ -38,6 +27,20 @@ export function RecipeList({data}) {
         navigate('/detail')
     }
 
+    useEffect(() => {
+        setRecipes(data);
+    }, [data]);
+
+
+    // if (isLoading) {
+    //     console.log(isLoading)
+    //     return <div style={{ textAlign: 'center', fontSize: '20px' }}>Loading...</div>; // Loading indicator
+    // }
+
+    if(recipes.length == 0 && !isLoading){
+        return <div style={{width: '100%', height:'750px', display: 'flex', justifyContent:'center', alignItems:'center', fontSize:'20px'}}>"Danh sách trống"</div>
+    }
+    
     return (
         <div className="recipe-list">
             {recipes.map((item, key) => (

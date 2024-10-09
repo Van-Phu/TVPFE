@@ -5,8 +5,8 @@
     /* display: flex;
     flex-wrap: wrap; */
     gap: 25px;
-    height: 750px;
-    overflow: auto;
+    height: 100%;
+    overflow-y: auto;
     padding: 10px;
 }
 
@@ -14,7 +14,7 @@
     display: flex;
     gap: 10px;
     flex-direction: column;
-    height: 365px;
+    height: 375px;
     width: 280px;
     background-color: #FFF7EC;
     padding: 10px;
@@ -22,6 +22,10 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     transition: transform 0.3s ease;
     user-select: none;
+}
+
+.recipe-block:last-child {
+    margin-bottom: 20px;
 }
 
 .recipe-block:hover{
@@ -38,12 +42,12 @@
 
 .img{
     object-fit: fill;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
 .information-block{
     display: flex;
-    gap: 5px;
+    gap: 4px;
     flex-direction: column;
 }
 
@@ -67,7 +71,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 57px;
+    min-height: 65px;
 }
 
 .recipe-author{
@@ -88,6 +92,10 @@
 .save-icon{
     color: #33363F;
     cursor: pointer;
+}
+
+.save-icon:hover{
+    color: #fc8c4c;
 }
 
 .save-icon.isSaved{
