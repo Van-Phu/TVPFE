@@ -20,7 +20,6 @@ function App() {
             </div>
             <div className='route-area'>
               <AppRoutes />
-              <CategoryList/>
             </div>
             
           </div>

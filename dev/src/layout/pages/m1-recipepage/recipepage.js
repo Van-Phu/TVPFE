@@ -3,6 +3,7 @@ import { faHouse, faBook, faBox, faAddressBook, faMagnifyingGlass, faCirclePlus 
 import './recipepage.css'
 import { RecipeList } from '../../shared/component/C-RecipeList/RecipeList'
 import { useEffect, useState } from 'react';
+import { CategoryList } from '../../shared/component/C-CategoryList/categorylist';
 export function RecipePage() {
 
     const listTest = [
@@ -15,6 +16,10 @@ export function RecipePage() {
     ];
     const [gridData, setGridData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+
+    const handleGetCategory = (category) => {
+        console.log(category);
+    }
 
     function handleFilterChange(value, fields) {
         const normalizedValue = value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -66,7 +71,7 @@ export function RecipePage() {
             </div>
 
             <div className='recipe-category'>
-
+                <CategoryList/>
             </div>
 
             <div className='recipeList'>
