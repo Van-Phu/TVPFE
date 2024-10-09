@@ -6,21 +6,32 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 export function CategoryList({onItemClick, data}) {
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState({});
+    const defaultItem = { id: -1, category: '', name: "", image: "" }
 
     const handleCateItemClick = useCallback((category) => {
-        setSelectedCategory(category);
-        
-        if (onItemClick) {
-            onItemClick(category);
+        if(category.id == selectedCategory.id){
+            setSelectedCategory(defaultItem)
+            if (onItemClick) {
+                onItemClick(defaultItem);
+            }
+        }else{
+            setSelectedCategory(category);
+            if (onItemClick) {
+                onItemClick(category);
+            }
         }
+     
+        // if (onItemClick) {
+        //     onItemClick(selectedCategory);
+        // }
     }, [onItemClick]);
+
 
     useEffect(() => {
         setCategories(data);
     }, [data]);
     
-
     return (
         <div className='category-container'>
             {categories.map((category, index) => (
@@ -29,7 +40,6 @@ export function CategoryList({onItemClick, data}) {
                     key={index}
                     className={`categories-item`}
                     >
-
                     <div className="image-container">
                         <img src={category.image} alt={category.name} className={`categories-image ${selectedCategory.id === category.id ? 'selected' : ''}`} />
                         {selectedCategory.id === category.id && (
