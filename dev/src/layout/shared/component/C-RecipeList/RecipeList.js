@@ -46,7 +46,7 @@ export function RecipeList({data}) {
             {recipes.map((item, key) => (
                 <div className="recipe-block" key={item.Code}>
                     <div className="image-block" onClick={() => handleItemClick(item)}>
-                        <img className="img" src="https://cdn.tgdd.vn/2021/02/CookProductThumb/BeFunky-collage-2021-02-01T112858.687-620x620.jpg" width={272} height={224} />
+                        <img className="img" src={item.PrimaryImage} alt="IMAGE" width={272} height={224} />
                     </div>
                     <div className="information-block">
                         <span className="recipe-title" title={item.RecipeName} onClick={() => handleItemClick(item)}>{item.RecipeName}</span>
