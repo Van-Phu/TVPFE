@@ -7,16 +7,16 @@ import { CategoryList } from '../../shared/component/C-CategoryList/categorylist
 export function RecipePage() {
 
     const listTest = [
-        { Code: 1, RecipeName: "Mì Ý Carbonara", RecipeDescription: "Món mì Ý cổ điển với trứng, phô mai, pancetta và tiêu.", Category: ["monnuoc", "Bữa tối"], IsSaved: true, NumOfSaved: 120, Author: "Đầu bếp Mario", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' }, 
-        { Code: 2, RecipeName: "Bánh Burger Chay", RecipeDescription: "Bánh burger chay với nguyên liệu từ thực vật, rất ngon miệng và bổ dưỡng.", Category: ["Chay", "Ăn nhanh"], IsSaved: false, NumOfSaved: 85, Author: "Đầu bếp An", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' }, 
-        { Code: 3, RecipeName: "Canh Chua Cá Lóc", RecipeDescription: "Món canh chua đậm đà với cá lóc và rau ngót, đặc sản miền Nam.", Category: ["monca", "Bữa trưa"], IsSaved: true, NumOfSaved: 150, Author: "Đầu bếp Thanh", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
-        { Code: 4, RecipeName: "Bánh Xèo", RecipeDescription: "Món bánh xèo giòn tan với tôm, thịt và giá đỗ, ăn kèm với rau sống và nước mắm.", Category: ["Việt Nam", "Ăn vặt"], IsSaved: true, NumOfSaved: 200, Author: "Đầu bếp Hương", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' }, 
-        { Code: 5, RecipeName: "Phở Bò", RecipeDescription: "Món phở truyền thống của Việt Nam với nước dùng thơm ngon và thịt bò.", Category: ["Việt Nam", "Bữa sáng"], IsSaved: true, NumOfSaved: 300, Author: "Đầu bếp Hoàng", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' }, 
-        { Code: 6, RecipeName: "Sushi Cá Hồi", RecipeDescription: "Sushi với cá hồi tươi, ăn kèm với gừng ngâm và wasabi.", Category: ["Nhật Bản", "Bữa tối"], IsSaved: false, NumOfSaved: 95, Author: "Đầu bếp Kenji", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
-        { Code: 7, RecipeName: "Lẩu Thái", RecipeDescription: "Món lẩu Thái cay nồng với hải sản và nấm, ăn kèm với rau và bún.", Category: ["Thái Lan", "Bữa tối"], IsSaved: true, NumOfSaved: 180, Author: "Đầu bếp Somchai", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' }, 
-        { Code: 8, RecipeName: "Cơm Tấm Sườn Nướng", RecipeDescription: "Cơm tấm với sườn nướng thơm lừng, ăn kèm với nước mắm pha đậm đà.", Category: ["Việt Nam", "Bữa trưa"], IsSaved: true, NumOfSaved: 250, Author: "Đầu bếp Lâm", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
-        { Code: 9, RecipeName: "Bún Chả Hà Nội", RecipeDescription: "Món bún chả nổi tiếng của Hà Nội với thịt nướng và nước mắm chua ngọt.", Category: ["Việt Nam", "Bữa trưa"], IsSaved: false, NumOfSaved: 175, Author: "Đầu bếp Mai", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
-        { Code: 10, RecipeName: "Pizza Margherita", RecipeDescription: "Pizza Ý cổ điển với phô mai mozzarella, sốt cà chua và lá húng quế.", Category: ["Ý", "Bữa tối"], IsSaved: true, NumOfSaved: 140, Author: "Đầu bếp Luca", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' }
+        { Code: 1, RecipeName: "Mì Ý Carbonara", RecipeDescription: "Món mì Ý cổ điển với trứng, phô mai, pancetta và tiêu.", Category: [0, 1], IsSaved: true, NumOfSaved: 120, Author: "Đầu bếp Mario", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
+        { Code: 2, RecipeName: "Bánh Burger Chay", RecipeDescription: "Bánh burger chay với nguyên liệu từ thực vật, rất ngon miệng và bổ dưỡng.", Category: [1, 2], IsSaved: false, NumOfSaved: 85, Author: "Đầu bếp An", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
+        { Code: 3, RecipeName: "Canh Chua Cá Lóc", RecipeDescription: "Món canh chua đậm đà với cá lóc và rau ngót, đặc sản miền Nam.", Category: [2, 3], IsSaved: true, NumOfSaved: 150, Author: "Đầu bếp Thanh", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
+        { Code: 4, RecipeName: "Bánh Xèo", RecipeDescription: "Món bánh xèo giòn tan với tôm, thịt và giá đỗ, ăn kèm với rau sống và nước mắm.", Category: [0,2], IsSaved: true, NumOfSaved: 200, Author: "Đầu bếp Hương", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
+        { Code: 5, RecipeName: "Phở Bò", RecipeDescription: "Món phở truyền thống của Việt Nam với nước dùng thơm ngon và thịt bò.", Category: [1], IsSaved: true, NumOfSaved: 300, Author: "Đầu bếp Hoàng", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
+        { Code: 6, RecipeName: "Sushi Cá Hồi", RecipeDescription: "Sushi với cá hồi tươi, ăn kèm với gừng ngâm và wasabi.", Category: [3], IsSaved: false, NumOfSaved: 95, Author: "Đầu bếp Kenji", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
+        { Code: 7, RecipeName: "Lẩu Thái", RecipeDescription: "Món lẩu Thái cay nồng với hải sản và nấm, ăn kèm với rau và bún.", Category: [1], IsSaved: true, NumOfSaved: 180, Author: "Đầu bếp Somchai", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
+        { Code: 8, RecipeName: "Cơm Tấm Sườn Nướng", RecipeDescription: "Cơm tấm với sườn nướng thơm lừng, ăn kèm với nước mắm pha đậm đà.", Category: [5], IsSaved: true, NumOfSaved: 250, Author: "Đầu bếp Lâm", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
+        { Code: 9, RecipeName: "Bún Chả Hà Nội", RecipeDescription: "Món bún chả nổi tiếng của Hà Nội với thịt nướng và nước mắm chua ngọt.", Category: [2], IsSaved: false, NumOfSaved: 175, Author: "Đầu bếp Mai", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' },
+        { Code: 10, RecipeName: "Pizza Margherita", RecipeDescription: "Pizza Ý cổ điển với phô mai mozzarella, sốt cà chua và lá húng quế.", Category: [3], IsSaved: true, NumOfSaved: 140, Author: "Đầu bếp Luca", PrimaryImage: 'https://image.baophapluat.vn/w840/Uploaded/2024/hfobhvwbucqaow/2022_10_19/pho-8658.jpg' }
     ];
 
     const categories = [
@@ -32,20 +32,20 @@ export function RecipePage() {
     const [gridData, setGridData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setsearchTerm] = useState({});
-    const [selectedCategory, setSelectedCategory] = useState({})
+    // const [selectedCategory, setSelectedCategory] = useState({})
     const [categoryTerm, setCategoryTerm] = useState({ value: "", fields: ['Category'] })
 
     const handleGetCategory = (category) => {
-        setSelectedCategory(category)
-        console.log(selectedCategory)
-        // setCategoryTerm({ value: categoryTerm?.category, fields: ['Category'] })
-        loadFilter()
+        // setSelectedCategory(category)
+        // console.log(selectedCategory)
+        setCategoryTerm({ value: category?.id, fields: ['Category'] })
+        // loadFilter()
     }
 
     function handleFilterChange(value, fields) {
         const filter = { value: value, fields: fields }
         setsearchTerm(filter); // Update filtered data
-        loadFilter();
+        
         // return searchFields
     }
 
@@ -64,7 +64,10 @@ export function RecipePage() {
         // console.log(categoryTerm)
         let filtered = [...gridData]
         searchFilter.forEach(filter => {
-            const normalizedValue = filter.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            let normalizedValue = ''
+            if (typeof filter.value === 'string') {
+             normalizedValue = filter.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            }
 
             filtered = filtered.filter(item => {
                 return filter.fields.some(field => {
@@ -76,8 +79,17 @@ export function RecipePage() {
 
                     if (Array.isArray(fieldValue)) {
                         return fieldValue.some(arrayItem => {
-                            const normalizedArrayItem = arrayItem.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f']/g, '');
-                            return normalizedArrayItem.includes(normalizedValue);
+                            if (typeof arrayItem === 'number') {
+                                return arrayItem.toString().includes(filter.value);
+                            }
+                            
+                            // If it's a string, normalize and check the inclusion
+                            if (typeof arrayItem === 'string') {
+                                const normalizedArrayItem = arrayItem.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                                return normalizedArrayItem.includes(normalizedValue);
+                            }
+        
+                            return false;
                         });
                     }
                     return false;
@@ -85,7 +97,7 @@ export function RecipePage() {
             });
         });
 
-        setFilteredData(filtered); // Update filtered data
+        setFilteredData(filtered);
 
     }
 
@@ -94,9 +106,14 @@ export function RecipePage() {
         setFilteredData(listTest);
     }, []);
 
-    useEffect(() =>{
-        handleGetCategory({});
-    }, [])
+    useEffect(() => {
+        if (categoryTerm.value) {
+            loadFilter();
+        }
+        if(searchTerm.value){
+            loadFilter();
+        }
+    }, [categoryTerm, searchTerm]);
 
     return (
         <div className='recipeContainer'>
