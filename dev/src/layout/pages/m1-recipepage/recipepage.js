@@ -60,7 +60,7 @@ export function RecipePage() {
         searchFilter.forEach(filter => {
             let normalizedValue = ''
             if (typeof filter.value === 'string') {
-             normalizedValue = filter.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+             normalizedValue = filter.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
             }
 
             filtered = filtered.filter(item => {
