@@ -9,6 +9,11 @@ export function CategoryList({onItemClick, data}) {
     const [selectedCategory, setSelectedCategory] = useState([]);
 
     const handleCateItemClick = useCallback((category) => {
+        console.log(category);
+        console.log(categories);
+        if(category == categories){
+            setCategories(null)
+        }
         setSelectedCategory(category);
         
         if (onItemClick) {
@@ -20,6 +25,7 @@ export function CategoryList({onItemClick, data}) {
         setCategories(data);
     }, [data]);
     
+    
 
     return (
         <div className='category-container'>
@@ -29,7 +35,6 @@ export function CategoryList({onItemClick, data}) {
                     key={index}
                     className={`categories-item`}
                     >
-
                     <div className="image-container">
                         <img src={category.image} alt={category.name} className={`categories-image ${selectedCategory.id === category.id ? 'selected' : ''}`} />
                         {selectedCategory.id === category.id && (
