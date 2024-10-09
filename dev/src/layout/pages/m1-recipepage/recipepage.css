@@ -1,23 +1,27 @@
 .recipeContainer{
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .recipteHeader{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 10px;
 }
 
 .searchArea{
     background-color: white;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .search{
     gap: 10px;
     display: flex;
+    padding-left: 5px;
 }
 
 .inputSearch{
@@ -41,4 +45,12 @@
     color: white;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.recipe-category{
+    height: 125px;
+}
+
+.recipeList{
+    height: calc(100vh - 270px);
 }
