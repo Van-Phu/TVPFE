@@ -32,28 +32,22 @@ export function RecipePage() {
     const [gridData, setGridData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setsearchTerm] = useState({});
-    // const [selectedCategory, setSelectedCategory] = useState({})
     const [categoryTerm, setCategoryTerm] = useState({ value: "", fields: ['Category'] })
 
     const handleGetCategory = (category) => {
-        // setSelectedCategory(category)
-        // console.log(selectedCategory)
         setCategoryTerm({ value: category?.id, fields: ['Category'] })
-        // loadFilter()
     }
 
     function handleFilterChange(value, fields) {
         const filter = { value: value, fields: fields }
-        setsearchTerm(filter); // Update filtered data
-        
-        // return searchFields
+        setsearchTerm(filter);
     }
 
     function loadFilter() {
         const searchFilter = []
 
         // Include category filter if it exists
-        if (categoryTerm && categoryTerm.value) {
+        if (categoryTerm && categoryTerm.value && categoryTerm.value != -1) {
             searchFilter.push(categoryTerm);
         }
 
