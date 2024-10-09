@@ -16,13 +16,25 @@ export function RecipePage() {
     ];
     const [gridData, setGridData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+    // const [filterFields, setFilterFields] = useState([]);
 
-    const handleGetCategory = (category) => {
-        console.log(category);
-    }
+    // const handleGetCategory = (category) => {
+    //     let searchFields = [{value: category.category, field:'Category'}]
+    //     // fields.forEach(element => {
+    //     //     searchFields.push({value: value, field: element})
+    //     // });
+    //     const existedFilter = filterFields.findIndex((item) => item.field)
+    //     loadFilter()
+    // }
 
     function handleFilterChange(value, fields) {
         const normalizedValue = value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+        // let searchFields = []
+
+        // fields.forEach(element => {
+        //     searchFields.push({value: value, field: element})
+        // });
 
         const filtered = gridData.filter(item => {
             // Check each field in the fields array
@@ -38,7 +50,27 @@ export function RecipePage() {
         });
 
         setFilteredData(filtered); // Update filtered data
+        // return searchFields
     }
+
+    // function loadFilter(){
+    //     const normalizedValue = value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+    //     const filtered = gridData.filter(item => {
+    //         // Check each field in the fields array
+    //         return fields.some(field => {
+    //             const fieldValue = item[field];
+    //             if (typeof fieldValue === 'string') {
+    //                 // Compare field value to search input (case-insensitive)
+    //                 const normalizedFieldValue = fieldValue.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    //                 return normalizedFieldValue.includes(normalizedValue);
+    //             }
+    //             return false; // If the field is not a string, don't include it in filtering
+    //         });
+    //     });
+
+    //     setFilteredData(filtered); // Update filtered data
+    // }
 
     useEffect(() => {
         setGridData(listTest);
@@ -71,7 +103,7 @@ export function RecipePage() {
             </div>
 
             <div className='recipe-category'>
-                <CategoryList/>
+                <CategoryList />
             </div>
 
             <div className='recipeList'>
