@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import AppRoutes from './layout/AppRoutes';
 import { Navbar } from './layout/shared/component/C-NavBar/navbar';
 import './App.css'
+import { CategoryList } from './layout/shared/component/C-CategoryList/categorylist';
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
             </div>
             <div className='route-area'>
               <AppRoutes />
+              <CategoryList/>
             </div>
+            
           </div>
           
         </div>
