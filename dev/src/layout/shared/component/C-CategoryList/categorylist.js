@@ -6,27 +6,32 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 export function CategoryList({onItemClick, data}) {
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState({});
+    const defaultItem = { id: -1, category: '', name: "", image: "" }
 
     const handleCateItemClick = useCallback((category) => {
-        console.log(category);
-        console.log(categories);
-        if(category == categories){
-            setCategories(null)
+        if(category.id == selectedCategory.id){
+            setSelectedCategory(defaultItem)
+            if (onItemClick) {
+                onItemClick(defaultItem);
+            }
+        }else{
+            setSelectedCategory(category);
+            if (onItemClick) {
+                onItemClick(category);
+            }
         }
-        setSelectedCategory(category);
-        
-        if (onItemClick) {
-            onItemClick(category);
-        }
+     
+        // if (onItemClick) {
+        //     onItemClick(selectedCategory);
+        // }
     }, [onItemClick]);
+
 
     useEffect(() => {
         setCategories(data);
     }, [data]);
     
-    
-
     return (
         <div className='category-container'>
             {categories.map((category, index) => (
