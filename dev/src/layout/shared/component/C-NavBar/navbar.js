@@ -1,13 +1,13 @@
 import './navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse, faBook, faBox, faAddressBook } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
 
 export function Navbar() {
     const listModule = [
-        { id: 0, text: 'CÔNG THỨC', icon: faBook, routeLink: '/recipe' },
+        { id: 0, text: 'CÔNG THỨC', icon: faBook, routeLink: '/' },
         { id: 1, text: 'ĐÃ LƯU', icon: faBox, routeLink: '/comunicate'  },
         { id: 2, text: 'CỘNG ĐỒNG', icon: faAddressBook, routeLink: '/stogare'  },
         { id: 3, text: 'Module 1', icon: faAddressBook },
@@ -15,6 +15,9 @@ export function Navbar() {
     ]
     const [moduleActive, setModuleActive] = useState()
     const navigate = useNavigate()
+    useEffect(() => {
+        setModuleActive(listModule[0])
+    },[])
 
     const handleModuleClick = (module) => {
         setModuleActive(module)

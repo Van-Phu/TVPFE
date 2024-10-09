@@ -47,6 +47,10 @@
     cursor: pointer;
 }
 
+.btnAddRecipe:hover{
+    filter: contrast(180%);
+}
+
 .recipe-category{
     height: 125px;
 }

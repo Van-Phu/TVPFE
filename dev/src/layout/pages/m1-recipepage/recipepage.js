@@ -62,7 +62,7 @@ export function RecipePage() {
                     </div>
                 </div>
                 <div className='btnRightArea'>
-                    <div style={{ fontWeight: 'bold' }}>Bạn muốn thêm món ăn ở danh mục này?</div>
+                    <div>Bạn muốn thêm món ăn ở danh mục này?</div>
                     <div className='btnAddRecipe'>
                         <FontAwesomeIcon icon={faCirclePlus} />
                         <div>Công thức mới</div>
