@@ -9,6 +9,9 @@
     justify-content: space-between;
     align-items: center;
     padding-left: 10px;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
 }
 
 .searchArea{
@@ -16,6 +19,7 @@
     padding: 10px;
     border-radius: 30px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    min-width: fit-content;
 }
 
 .search{
@@ -34,6 +38,8 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    white-space: nowrap;
+    min-width: fit-content;
 }
 
 .btnAddRecipe{
@@ -45,6 +51,7 @@
     color: white;
     border-radius: 10px;
     cursor: pointer;
+
 }
 
 .btnAddRecipe:hover{
