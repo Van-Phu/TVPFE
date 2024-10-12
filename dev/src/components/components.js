@@ -39,7 +39,7 @@ export function Navbar() {
         { id: 4, text: 'Module 1', icon: 'cion' },
     ]
     const [moduleActive, setModuleActive] = useState()
-    // const navigate = useNavigate()
+
     useEffect(() => {
         setModuleActive(listModule[0])
     }, [])
@@ -131,15 +131,16 @@ export function CategoryList({ onItemClick, data }) {
 }
 
 
-export function RecipeList({ data }) {
+
+export function RecipeList({data}) {
     const [recipes, setRecipes] = useState(data || []);
     const [isLoading, setIsLoading] = useState(false);
-    // const navigate = useNavigate();
 
-    const handleSaveClick = (recipe) => {
+    const handleSaveClick = (recipe) =>{
+        console.log(recipe)
         const updatedRecipes = recipes.map((item) => {
             if (item.Code === recipe.Code) {
-                return { ...item, IsSaved: !item.IsSaved }; // Toggle IsSaved state
+                return { ...item, IsSaved: item.IsSaved }; // Toggle IsSaved state
             }
             return item;
         });
@@ -147,10 +148,10 @@ export function RecipeList({ data }) {
         setRecipes(updatedRecipes); // Update state
     }
 
-    const handleItemClick = (recipe) => {
-        localStorage.setItem('DTORecipe', JSON.stringify(recipe))
-        // navigate('/detail')
-    }
+    // const handleItemClick = (recipe) =>{
+    //     localStorage.setItem('DTORecipe', JSON.stringify(recipe))
+    //     navigate('/detail')
+    // }
 
     useEffect(() => {
         setRecipes(data);
@@ -162,29 +163,28 @@ export function RecipeList({ data }) {
     //     return <div style={{ textAlign: 'center', fontSize: '20px' }}>Loading...</div>; // Loading indicator
     // }
 
-    if (recipes.length == 0 && !isLoading) {
-        return <div style={{ width: '100%', height: '750px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>"Danh sách trống"</div>
+    if(recipes.length == 0 && !isLoading){
+        return <div style={{width: '100%', height:'750px', display: 'flex', justifyContent:'center', alignItems:'center', fontSize:'20px'}}>"Danh sách trống"</div>
     }
-
+    
     return (
         <div className="recipe-list">
             {recipes.map((item, key) => (
-                <div className="recipe-block" key={item.Code}>
-                    <div className="image-block" onClick={() => handleItemClick(item)}>
-                        <img className="img" src={item.PrimaryImage} alt="IMAGE" width={272} height={224} />
-                    </div>
-                    <div className="information-block">
-                        <span className="recipe-title" title={item.RecipeName} onClick={() => handleItemClick(item)}>{item.RecipeName}</span>
-                        <span className="recipe-description" title={item.RecipeDescription}>{item.RecipeDescription}</span>
-                        <span className="recipe-author" title={item.Author}>Người đăng: {item.Author}</span>
-                        <div className="save-block">
-                            <span className="num-of-saved">{item.NumOfSaved} người đã lưu</span>
-                            <span className={`save-icon ${item.IsSaved ? 'isSaved' : ''}`} onClick={() => handleSaveClick(item)}>
-                                <div>icon</div>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                // <div className="recipe-block" key={item.Code}>
+                //     <div className="image-block" onClick={() => handleItemClick(item)}>
+                //         <img className="img" src={item.PrimaryImage} alt="IMAGE" width={272} height={224} />
+                //     </div>
+                //     <div className="information-block">
+                //         <span className="recipe-title" title={item.RecipeName} onClick={() => handleItemClick(item)}>{item.RecipeName}</span>
+                //         <span className="recipe-description" title={item.RecipeDescription}>{item.RecipeDescription}</span>
+                //         <span className="recipe-author" title={item.Author}>Người đăng: {item.Author}</span>
+                //         <div className="save-block">
+                //             <span className="num-of-saved">{item.NumOfSaved} người đã lưu</span>
+                //             <span className={`save-icon ${item.IsSaved ? 'isSaved' : ''}`} onClick={() => handleSaveClick(item)}><FontAwesomeIcon icon={item.IsSaved ? solidBookmark : regularBookmark} /></span>
+                //         </div>
+                //     </div>
+                // </div>
+                <RecipeCard key={key} data={item} onItemClick={handleSaveClick}/>
             ))}
         </div>
     )
@@ -325,6 +325,44 @@ export function RecipePage() {
 
             <div className='recipeList'>
                 <RecipeList data={filteredData}></RecipeList>
+            </div>
+        </div>
+    )
+}
+
+export function RecipeCard({data, onItemClick}){
+
+    const [itemData, setItemData] = useState({});
+    const handleItemClick = (recipe) =>{
+        localStorage.setItem('DTORecipe', JSON.stringify(recipe))
+    }
+
+    const handleSaveClick = useCallback((item) => {
+            item.IsSaved = !item.IsSaved
+            setItemData(item)
+            if (onItemClick) {
+                onItemClick(item);
+            }
+    }, [onItemClick]);
+
+    useEffect(() =>{
+        setItemData(data)
+    }, [data])
+
+    return (
+        <div className="recipe-block" key={itemData.Code}>
+            <div className="image-block" onClick={() => handleItemClick(itemData)}>
+                <img className="img" src={itemData.PrimaryImage} alt="IMAGE" width={272} height={224} />
+            </div>
+            <div className="information-block">
+                <span className="recipe-title" title={itemData.RecipeName} onClick={() => handleItemClick(itemData)}>{itemData.RecipeName}</span>
+                <span className="recipe-description" title={itemData.RecipeDescription}>{itemData.RecipeDescription}</span>
+                <span className="recipe-author" title={itemData.Author}>Người đăng: {itemData.Author}</span>
+                <div className="save-block">
+                    <span className="num-of-saved">{itemData.NumOfSaved} người đã lưu</span>
+                    {/* <span className={`save-icon ${itemData.IsSaved ? 'isSaved' : ''}`} onClick={() => handleSaveClick(itemData)}><FontAwesomeIcon icon={itemData.IsSaved ? solidBookmark : regularBookmark} /></span> */}
+                    <input className="icon save-icon" type="checkbox" checked={itemData.IsSaved} onChange={() => handleSaveClick(itemData)}/>
+                </div>
             </div>
         </div>
     )
