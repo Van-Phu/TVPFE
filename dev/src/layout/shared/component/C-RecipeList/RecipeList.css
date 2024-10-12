@@ -41,7 +41,7 @@
 }
 
 .img{
-    object-fit: fill;
+    object-fit: cover;
     border-radius: 6px;
 }
 
